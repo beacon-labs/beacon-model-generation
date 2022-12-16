@@ -1,0 +1,9 @@
+models:
+  - name: Design
+    attributes:
+      - name: name
+        type: string
+        primary: true
+      - name: cells
+        type: Cell
+        list: true

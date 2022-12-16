@@ -1,0 +1,5 @@
+Beacon Model Generation (BMG)
+=============================
+
+BMG is a python package used to generate C++ models
+
