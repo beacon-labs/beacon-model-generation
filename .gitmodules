@@ -1,0 +1,6 @@
+[submodule "dependencies/beacon-utils"]
+	path = dependencies/beacon-utils
+	url = git@github.com:beacon-labs/beacon-utils.git
+[submodule "dependencies/utils"]
+	path = dependencies/utils
+	url = git@github.com:beacon-labs/beacon-utils.git
