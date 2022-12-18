@@ -15,7 +15,7 @@ models:
         type: string
         primary: true
       #---------------------------------------------------------------------------------------------
-      - name: cells
+      - name: instances
         type: Instance
         list: true
         containment: true

@@ -4,7 +4,16 @@
  * {{ description }}
  */
 
-class {{ h.get_prefixed_name(name) }}
+#include "{{ h.get_header_filename(name) }}"
+
+{% for attribute in attributes: %}
+{{ h.get_attribute_type(attribute) }} {{ h.get_prefixed_name(name) }}::get_{{ attribute["name"] }}()
 {
-    
-};
+    return {{ attribute["name"] }};
+}
+
+void {{ h.get_prefixed_name(name) }}::set_{{ attribute["name"] }}({{ h.get_attribute_type(attribute) }} value)
+{
+    {{ attribute["name"] }} = value;
+}
+{% endfor %}

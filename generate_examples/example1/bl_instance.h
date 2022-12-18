@@ -13,6 +13,8 @@ using namespace std;
 #include <string>
 #include "bl_design.h"
 
+class BLDesign;
+
 class BLInstance
 {
     string name;
@@ -20,11 +22,11 @@ class BLInstance
     
     public:
         
-            string get_name();
-            string set_name(string value);
+        string get_name();
+        void set_name(string value);
         
-            weak_ptr<BLDesign> get_reference();
-            weak_ptr<BLDesign> set_reference(weak_ptr<BLDesign> value);
+        weak_ptr<BLDesign> get_reference();
+        void set_reference(weak_ptr<BLDesign> value);
         
 
 };

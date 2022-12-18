@@ -19,6 +19,9 @@ using namespace std;
 {% for include in h.get_model_includes(name) -%}
     #include "{{ include }}"
 {% endfor %}
+{% for forward in h.get_model_forwards(name) -%}
+    class {{ forward }};
+{% endfor %}
 class {{ h.get_prefixed_name(name) }}
 {
     {% for attribute in attributes: -%}
@@ -26,8 +29,8 @@ class {{ h.get_prefixed_name(name) }}
     {% endfor %}
     public:
         {% for attribute in attributes: %}
-            {{ h.get_attribute_type(attribute) }} get_{{ attribute["name"] }}();
-            {{ h.get_attribute_type(attribute) }} set_{{ attribute["name"] }}({{ h.get_attribute_type(attribute) }} value);
+        {{ h.get_attribute_type(attribute) }} get_{{ attribute["name"] }}();
+        void set_{{ attribute["name"] }}({{ h.get_attribute_type(attribute) }} value);
         {% endfor %}
 
 };

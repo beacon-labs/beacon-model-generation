@@ -130,6 +130,16 @@ def get_model_includes(name):
     ]
 
 
+def get_model_forwards(name):
+    """Get a list of forwards for all attributes"""
+    model = get_model(name)
+    return [
+        get_prefixed_name(attribute["type"])
+        for attribute in model["attributes"]
+        if is_model(attribute["type"])
+    ]
+
+
 def list_attributes(name):
     """Returns a list of attributes that have list: true"""
     model = get_model(name)

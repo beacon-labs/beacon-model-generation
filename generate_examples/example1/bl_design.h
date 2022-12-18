@@ -14,18 +14,20 @@ using namespace std;
 #include <list>
 #include "bl_instance.h"
 
+class BLInstance;
+
 class BLDesign
 {
     string name;
-    list<shared_ptr<BLInstance>> cells;
+    list<shared_ptr<BLInstance>> instances;
     
     public:
         
-            string get_name();
-            string set_name(string value);
+        string get_name();
+        void set_name(string value);
         
-            list<shared_ptr<BLInstance>> get_cells();
-            list<shared_ptr<BLInstance>> set_cells(list<shared_ptr<BLInstance>> value);
+        list<shared_ptr<BLInstance>> get_instances();
+        void set_instances(list<shared_ptr<BLInstance>> value);
         
 
 };
