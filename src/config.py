@@ -4,10 +4,13 @@ from typing import Any
 from schema import Schema, Optional
 import yaml
 
+from dependencies.utils.src.structures import merge
+
 SCHEMA = Schema(
     {
-        Optional("config"): {
+        Optional("settings"): {
             "prefix": str,
+            Optional("includes"): [str],
         },
         "models": [
             {
@@ -19,6 +22,7 @@ SCHEMA = Schema(
                         "type": str,
                         Optional("primary"): bool,
                         Optional("list"): bool,
+                        Optional("containment"): bool,
                     }
                 ],
             }
@@ -26,12 +30,13 @@ SCHEMA = Schema(
     }
 )
 
-DEFAULTS = {"config": {"prefix": "BMG"}, "models": []}
+DEFAULTS = {"settings": {"prefix": "BL", "includes": []}, "models": []}
 
 
 def load(fn: str):
     """Loads YAML from filename then validates against config.SCHEMA"""
     with open(fn, "r") as f:
-        config = DEFAULTS | yaml.safe_load(f)
-        SCHEMA.validate(config)
+        config = DEFAULTS.copy()
+        merge(yaml.safe_load(f), config)
+        SCHEMA.validate(config), config
     return config

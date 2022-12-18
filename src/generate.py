@@ -1,4 +1,5 @@
 from . import config
+from . import helpers
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import os
 
@@ -10,11 +11,16 @@ template_env = Environment(
 
 def run(filename: str, output="."):
     """Generate C++ models based on configuration file"""
-    c = config.load(filename)
+    helpers.set_config(config.load(filename))
 
-    # CPP files for each model
-    template = template_env.get_template("model.cpp.j2")
-    for model in c["models"]:
-        model_fn = os.path.join(output, f"{model['name']}.cpp")
-        with open(model_fn, "w") as f:
-            f.write(template.render(model))
+    # CPP/HPP files for each model
+    templates = {
+        "cpp": template_env.get_template("model.cpp.j2"),
+        "h": template_env.get_template("model.h.j2"),
+    }
+
+    for model in helpers.get_models():
+        for ext in templates.keys():
+            fn = os.path.join(output, helpers.get_model_filename(model["name"], ext))
+            with open(fn, "w") as f:
+                f.write(templates[ext].render(model, h=helpers))

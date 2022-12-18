@@ -11,5 +11,5 @@ def Generate(context):
     def test_generate(context):
         @context.example
         def it_will_generate_models_for_example1(self):
-            output = files.clean_dir("generate_temp")
+            output = files.clean_dir("generate_examples/example1")
             generate.run("test/assets/example1.yml", output)

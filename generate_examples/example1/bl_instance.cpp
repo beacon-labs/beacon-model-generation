@@ -1,9 +1,10 @@
 /*
- * Instance
+ * BLInstance
  * ------------------------------
  * An instance of a design
  */
 
-class Instance {
+class BLInstance
+{
     
-}
+};
