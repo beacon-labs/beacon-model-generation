@@ -1,31 +1,31 @@
 /*
- * BLInstance
+ * BLNet
  * ------------------------------
- * An instance of a design
+ * An net to connect instance pins (and optionally design ports)
  */
 
-#ifndef _BLINSTANCE_H_
-#define _BLINSTANCE_H_
+#ifndef _BLNET_H_
+#define _BLNET_H_
 
 using namespace std;
 
 #include <memory>
 #include <string>
 #include <list>
-#include "bl_design.h"
 #include "bl_pin.h"
+#include "bl_port.h"
 
-class BLDesign;
 class BLPin;
+class BLPort;
 
-class BLInstance
+class BLNet
 {
     
         string name;
     
-        shared_ptr<BLDesign> reference;
-    
         list<shared_ptr<BLPin>> pins;
+    
+        list<shared_ptr<BLPort>> ports;
     
     public:
         
@@ -34,14 +34,14 @@ class BLInstance
                 void set_name(string value);
             
         
-            shared_ptr<BLDesign> get_reference();
-            
-                void set_reference(shared_ptr<BLDesign> value);
-            
-        
             list<shared_ptr<BLPin>> get_pins();
             
                 void add_pin(shared_ptr<BLPin> value);
+            
+        
+            list<shared_ptr<BLPort>> get_ports();
+            
+                void add_port(shared_ptr<BLPort> value);
             
         
 

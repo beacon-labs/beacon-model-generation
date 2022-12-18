@@ -2,7 +2,7 @@
 """Helpers contains methods that can be used in a template"""
 ####################################################################################################
 
-from dependencies.utils.src.names import snakecase
+from dependencies.utils.src.names import snakecase, singular
 
 # ---------------------------------------------------------------------------------------------------
 # Config helpers
@@ -89,10 +89,7 @@ def get_type(name, list=False, containment=False):
 
     if is_model(new_name):
         new_name = get_prefixed_name(new_name)
-        if containment:
-            new_name = f"shared_ptr<{new_name}>"
-        else:
-            new_name = f"weak_ptr<{new_name}>"
+        new_name = f"shared_ptr<{new_name}>"
 
     if list:
         new_name = f"list<{new_name}>"
@@ -160,3 +157,16 @@ def get_attribute_type(attribute):
         list=attribute.get("list", False),
         containment=attribute.get("containment", False),
     )
+
+
+def get_attribute_type_without_list(attribute):
+    """Returns the type for the specified attribute"""
+    return get_type(
+        attribute["type"],
+        list=False,
+        containment=attribute.get("containment", False),
+    )
+
+
+def get_singular_attribute_name(attribute):
+    return singular(attribute["name"])

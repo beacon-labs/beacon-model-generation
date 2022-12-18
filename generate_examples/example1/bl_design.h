@@ -18,16 +18,22 @@ class BLInstance;
 
 class BLDesign
 {
-    string name;
-    list<shared_ptr<BLInstance>> instances;
+    
+        string name;
+    
+        list<shared_ptr<BLInstance>> instances;
     
     public:
         
-        string get_name();
-        void set_name(string value);
+            string get_name();
+            
+                void set_name(string value);
+            
         
-        list<shared_ptr<BLInstance>> get_instances();
-        void set_instances(list<shared_ptr<BLInstance>> value);
+            list<shared_ptr<BLInstance>> get_instances();
+            
+                void add_instance(shared_ptr<BLInstance> value);
+            
         
 
 };
