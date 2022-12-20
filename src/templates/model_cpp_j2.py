@@ -1,3 +1,4 @@
+TEMPLATE = """
 /*
  * {{ h.get_prefixed_name(name) }}
  * ------------------------------
@@ -24,3 +25,4 @@
         }
     {% endif %}
 {% endfor %}
+"""

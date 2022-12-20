@@ -1,6 +1,6 @@
 from testslide.dsl import context
 from src import generate
-from dependencies.utils.src import files
+from src.utils import files
 from pathlib import Path
 import shutil
 

@@ -1,12 +1,8 @@
 from . import config
 from . import helpers
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Template
 import os
-
-template_env = Environment(
-    loader=FileSystemLoader(f"{os.path.dirname(__file__)}/templates/"),
-    autoescape=select_autoescape(),
-)
+from .templates import model_cpp_j2, model_h_j2
 
 
 def run(filename: str, output="."):
@@ -15,8 +11,8 @@ def run(filename: str, output="."):
 
     # CPP/HPP files for each model
     templates = {
-        "cpp": template_env.get_template("model.cpp.j2"),
-        "h": template_env.get_template("model.h.j2"),
+        "cpp": Template(model_cpp_j2.TEMPLATE),
+        "h": Template(model_h_j2.TEMPLATE),
     }
 
     for model in helpers.get_models():

@@ -1,3 +1,4 @@
+TEMPLATE = """
 /*
  * {{ h.get_prefixed_name(name) }}
  * ------------------------------
@@ -40,3 +41,4 @@ class {{ h.get_prefixed_name(name) }}
 };
 
 #endif
+"""
