@@ -1,5 +1,5 @@
 from testslide.dsl import context
-from src import config
+import config
 
 
 @context

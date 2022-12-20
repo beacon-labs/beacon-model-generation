@@ -3,7 +3,7 @@
 from typing import Any
 from schema import Schema, Optional
 import yaml
-from .utils.structures import merge
+from utils.structures import merge
 
 SCHEMA = Schema(
     {

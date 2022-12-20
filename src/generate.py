@@ -1,8 +1,8 @@
-from . import config
-from . import helpers
+import config
+import helpers
 from jinja2 import Template
 import os
-from .templates import model_cpp_j2, model_h_j2
+from templates import model_cpp_j2, model_h_j2
 
 
 def run(filename: str, output="."):

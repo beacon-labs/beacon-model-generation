@@ -2,7 +2,7 @@
 """Helpers contains methods that can be used in a template"""
 ####################################################################################################
 
-from .utils.names import snakecase, singular
+from utils.names import snakecase, singular
 
 # ---------------------------------------------------------------------------------------------------
 # Config helpers
