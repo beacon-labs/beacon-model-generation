@@ -5,8 +5,7 @@ TEMPLATE = """
  * {{ description }}
  */
 
-#ifndef {{h.get_define_name(name)}}
-#define {{h.get_define_name(name)}}
+#pragma once
 
 using namespace std;
 
@@ -40,5 +39,4 @@ class {{ h.get_prefixed_name(name) }}
 
 };
 
-#endif
 """
