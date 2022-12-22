@@ -2,3 +2,4 @@ testslide
 coverage
 schema
 pyyaml
+jinja2
