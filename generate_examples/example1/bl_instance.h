@@ -5,8 +5,7 @@
  * An instance of a design
  */
 
-#ifndef _BLINSTANCE_H_
-#define _BLINSTANCE_H_
+#pragma once
 
 using namespace std;
 
@@ -47,5 +46,3 @@ class BLInstance
         
 
 };
-
-#endif

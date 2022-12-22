@@ -3,5 +3,5 @@
 coverage erase
 COVERAGE_PROCESS_START=.coveragerc testslide test/*_test.py
 coverage combine
-coverage html --include 'src/*'
-coverage report --include 'src/*'
+coverage html --include './**/*.py'
+coverage report --include './**/*.py'

@@ -5,8 +5,7 @@
  * An net to connect instance pins (and optionally design ports)
  */
 
-#ifndef _BLNET_H_
-#define _BLNET_H_
+#pragma once
 
 using namespace std;
 
@@ -47,5 +46,3 @@ class BLNet
         
 
 };
-
-#endif

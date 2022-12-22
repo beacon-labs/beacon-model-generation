@@ -5,8 +5,7 @@
  * A design or module used to group functions and cells
  */
 
-#ifndef _BLDESIGN_H_
-#define _BLDESIGN_H_
+#pragma once
 
 using namespace std;
 
@@ -38,5 +37,3 @@ class BLDesign
         
 
 };
-
-#endif

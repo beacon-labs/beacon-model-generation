@@ -5,8 +5,7 @@
  * A port of a design
  */
 
-#ifndef _BLPORT_H_
-#define _BLPORT_H_
+#pragma once
 
 using namespace std;
 
@@ -35,5 +34,3 @@ class BLPort
         
 
 };
-
-#endif

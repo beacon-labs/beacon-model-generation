@@ -5,8 +5,7 @@
  * Pin of an instance
  */
 
-#ifndef _BLPIN_H_
-#define _BLPIN_H_
+#pragma once
 
 using namespace std;
 
@@ -35,5 +34,3 @@ class BLPin
         
 
 };
-
-#endif
