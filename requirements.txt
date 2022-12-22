@@ -1,4 +1,4 @@
 testslide
 coverage
 schema
-yaml
+pyyaml
