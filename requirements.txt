@@ -1,0 +1,3 @@
+testslide
+coverage
+schema
