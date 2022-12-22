@@ -59,6 +59,6 @@ Each attribute has the following attributes:
 | type | | The type of the attribute |
 | primary | false | If primary = true this attribute is unique |
 | list | false | Sets attribute to a list of items with the specified type |
-| containment | false | Implies that thi attribute contains objects that are owned by the current object (used for object deletion policies) |
+| containment | false | Implies that this attribute contains objects that are owned by the current object (used for object deletion policies) |
 
 
