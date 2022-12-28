@@ -9,31 +9,9 @@
 
 using namespace std;
 
-#include <memory>
-#include <string>
-#include <list>
-#include "bl_instance.h"
+#include "bl_design_base.h"
 
-class BLInstance;
-
-class BLDesign
+class BLDesign : public BLDesignBase
 {
-    
-        string name;
-    
-        list<shared_ptr<BLInstance>> instances;
-    
-    public:
-        
-            string get_name();
-            
-                void set_name(string value);
-            
-        
-            list<shared_ptr<BLInstance>> get_instances();
-            
-                void add_instance(shared_ptr<BLInstance> value);
-            
-        
-
+    // Add your custom code here
 };

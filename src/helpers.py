@@ -141,7 +141,9 @@ def list_attributes(name):
     """Returns a list of attributes that have list: true"""
     model = get_model(name)
     return [
-        attribute for attribute in model["attributes"] if attribute.get("list", False)
+        attribute
+        for attribute in model.get("attributes", [])
+        if attribute.get("list", False)
     ]
 
 
