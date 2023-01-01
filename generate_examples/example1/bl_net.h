@@ -7,9 +7,9 @@
 
 #pragma once
 
-using namespace std;
-
 #include "bl_net_base.h"
+
+using namespace std;
 
 class BLNet : public BLNetBase
 {

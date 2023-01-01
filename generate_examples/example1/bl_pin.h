@@ -7,9 +7,9 @@
 
 #pragma once
 
-using namespace std;
-
 #include "bl_pin_base.h"
+
+using namespace std;
 
 class BLPin : public BLPinBase
 {

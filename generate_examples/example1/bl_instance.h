@@ -7,9 +7,9 @@
 
 #pragma once
 
-using namespace std;
-
 #include "bl_instance_base.h"
+
+using namespace std;
 
 class BLInstance : public BLInstanceBase
 {

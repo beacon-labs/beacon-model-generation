@@ -7,9 +7,9 @@
 
 #pragma once
 
-using namespace std;
-
 #include "bl_port_base.h"
+
+using namespace std;
 
 class BLPort : public BLPortBase
 {

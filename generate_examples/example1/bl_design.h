@@ -7,9 +7,9 @@
 
 #pragma once
 
-using namespace std;
-
 #include "bl_design_base.h"
+
+using namespace std;
 
 class BLDesign : public BLDesignBase
 {

@@ -12,12 +12,19 @@ def run(filename: str, output="."):
     # CPP/HPP files for each model
     templates = {
         "base": {
-            "cpp": Template(model_base_cpp_j2.TEMPLATE),
-            "h": Template(model_base_h_j2.TEMPLATE),
+            "files": {
+                "cpp": Template(model_base_cpp_j2.TEMPLATE),
+                "h": Template(model_base_h_j2.TEMPLATE),
+            },
+            "override": True,
+            "suffix": "Base",
         },
         "custom": {
-            "cpp": Template(model_cpp_j2.TEMPLATE),
-            "h": Template(model_h_j2.TEMPLATE),
+            "files": {
+                "cpp": Template(model_cpp_j2.TEMPLATE),
+                "h": Template(model_h_j2.TEMPLATE),
+            },
+            "override": False,
         },
     }
 
@@ -25,16 +32,15 @@ def run(filename: str, output="."):
         print(f"INFO: writing model {model['name']}")
 
         # Always write base files
-        for ext in templates["base"].keys():
-            fn = os.path.join(
-                output, helpers.get_model_filename(model["name"] + "Base", ext)
-            )
-            with open(fn, "w") as f:
-                f.write(templates["base"][ext].render(model, h=helpers))
-
-        # Only write custom files if they don't exist
-        for ext in templates["custom"].keys():
-            fn = os.path.join(output, helpers.get_model_filename(model["name"], ext))
-            if not os.path.exists(fn):
-                with open(fn, "w") as f:
-                    f.write(templates["custom"][ext].render(model, h=helpers))
+        for type in templates.keys():
+            for ext in templates[type]["files"].keys():
+                fn = os.path.join(
+                    output,
+                    helpers.get_model_filename(
+                        model["name"] + templates[type].get("suffix", "").capitalize(),
+                        ext,
+                    ),
+                )
+                if templates[type].get("override", False) or not os.path.exists(fn):
+                    with open(fn, "w") as f:
+                        f.write(templates[type]["files"][ext].render(model, h=helpers))
