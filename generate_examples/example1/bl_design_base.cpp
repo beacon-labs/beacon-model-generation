@@ -11,25 +11,25 @@
 #include "bl_design_base.h"
 
 
-    string BLDesignBase::get_name()
-    {
-        return this->name;
-    }
+string BLDesignBase::get_name()
+{
+    return this->name;
+}
 
-    void BLDesignBase::set_name(string value)
-        {
-            this->name = value;
-        }
-    
+void BLDesignBase::set_name(string value)
+{
+    this->name = value;
+}
 
-    list<shared_ptr<BLInstance>> BLDesignBase::get_instances()
-    {
-        return this->instances;
-    }
 
-    
-        void BLDesignBase::add_instance(shared_ptr<BLInstance> value)
-        {
-            this->instances.push_back( value );
-        }
-    
+list<shared_ptr<BLInstance>> BLDesignBase::get_instances()
+{
+    return this->instances;
+}
+
+
+void BLDesignBase::add_instance(shared_ptr<BLInstance> value)
+{
+    this->instances.push_back( value );
+}
+

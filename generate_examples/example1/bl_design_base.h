@@ -15,28 +15,23 @@ using namespace std;
 #include <memory>
 #include <string>
 #include <list>
-// //     #include "bl_instance.h"
-// 
 class BLInstance;
 
 class BLDesignBase
 {
     
-        string name;
+    string name;
     
-        list<shared_ptr<BLInstance>> instances;
+    list<shared_ptr<BLInstance>> instances;
     
-    public:
-        
-            string get_name();
-            
-                void set_name(string value);
-            
-        
-            list<shared_ptr<BLInstance>> get_instances();
-            
-                void add_instance(shared_ptr<BLInstance> value);
-            
-        
+public:
+    
+    string get_name();
+    void set_name(string value);
+    
+    list<shared_ptr<BLInstance>> get_instances();
+    void add_instance(shared_ptr<BLInstance> value);
+    
+    
 
 };

@@ -11,36 +11,36 @@
 #include "bl_instance_base.h"
 
 
-    string BLInstanceBase::get_name()
-    {
-        return this->name;
-    }
+string BLInstanceBase::get_name()
+{
+    return this->name;
+}
 
-    void BLInstanceBase::set_name(string value)
-        {
-            this->name = value;
-        }
-    
+void BLInstanceBase::set_name(string value)
+{
+    this->name = value;
+}
 
-    shared_ptr<BLDesign> BLInstanceBase::get_reference()
-    {
-        return this->reference;
-    }
 
-    void BLInstanceBase::set_reference(shared_ptr<BLDesign> value)
-        {
-            this->reference = value;
-        }
-    
+shared_ptr<BLDesign> BLInstanceBase::get_reference()
+{
+    return this->reference;
+}
 
-    list<shared_ptr<BLPin>> BLInstanceBase::get_pins()
-    {
-        return this->pins;
-    }
+void BLInstanceBase::set_reference(shared_ptr<BLDesign> value)
+{
+    this->reference = value;
+}
 
-    
-        void BLInstanceBase::add_pin(shared_ptr<BLPin> value)
-        {
-            this->pins.push_back( value );
-        }
-    
+
+list<shared_ptr<BLPin>> BLInstanceBase::get_pins()
+{
+    return this->pins;
+}
+
+
+void BLInstanceBase::add_pin(shared_ptr<BLPin> value)
+{
+    this->pins.push_back( value );
+}
+

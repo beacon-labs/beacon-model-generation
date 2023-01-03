@@ -11,24 +11,24 @@
 #include "bl_port_base.h"
 
 
-    string BLPortBase::get_name()
-    {
-        return this->name;
-    }
+string BLPortBase::get_name()
+{
+    return this->name;
+}
 
-    void BLPortBase::set_name(string value)
-        {
-            this->name = value;
-        }
-    
+void BLPortBase::set_name(string value)
+{
+    this->name = value;
+}
 
-    string BLPortBase::get_direction()
-    {
-        return this->direction;
-    }
 
-    void BLPortBase::set_direction(string value)
-        {
-            this->direction = value;
-        }
-    
+string BLPortBase::get_direction()
+{
+    return this->direction;
+}
+
+void BLPortBase::set_direction(string value)
+{
+    this->direction = value;
+}
+

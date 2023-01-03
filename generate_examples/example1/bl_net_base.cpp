@@ -11,37 +11,37 @@
 #include "bl_net_base.h"
 
 
-    string BLNetBase::get_name()
-    {
-        return this->name;
-    }
+string BLNetBase::get_name()
+{
+    return this->name;
+}
 
-    void BLNetBase::set_name(string value)
-        {
-            this->name = value;
-        }
-    
+void BLNetBase::set_name(string value)
+{
+    this->name = value;
+}
 
-    list<shared_ptr<BLPin>> BLNetBase::get_pins()
-    {
-        return this->pins;
-    }
 
-    
-        void BLNetBase::add_pin(shared_ptr<BLPin> value)
-        {
-            this->pins.push_back( value );
-        }
-    
+list<shared_ptr<BLPin>> BLNetBase::get_pins()
+{
+    return this->pins;
+}
 
-    list<shared_ptr<BLPort>> BLNetBase::get_ports()
-    {
-        return this->ports;
-    }
 
-    
-        void BLNetBase::add_port(shared_ptr<BLPort> value)
-        {
-            this->ports.push_back( value );
-        }
-    
+void BLNetBase::add_pin(shared_ptr<BLPin> value)
+{
+    this->pins.push_back( value );
+}
+
+
+list<shared_ptr<BLPort>> BLNetBase::get_ports()
+{
+    return this->ports;
+}
+
+
+void BLNetBase::add_port(shared_ptr<BLPort> value)
+{
+    this->ports.push_back( value );
+}
+

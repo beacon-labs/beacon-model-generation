@@ -11,24 +11,24 @@
 #include "bl_pin_base.h"
 
 
-    string BLPinBase::get_name()
-    {
-        return this->name;
-    }
+string BLPinBase::get_name()
+{
+    return this->name;
+}
 
-    void BLPinBase::set_name(string value)
-        {
-            this->name = value;
-        }
-    
+void BLPinBase::set_name(string value)
+{
+    this->name = value;
+}
 
-    string BLPinBase::get_direction()
-    {
-        return this->direction;
-    }
 
-    void BLPinBase::set_direction(string value)
-        {
-            this->direction = value;
-        }
-    
+string BLPinBase::get_direction()
+{
+    return this->direction;
+}
+
+void BLPinBase::set_direction(string value)
+{
+    this->direction = value;
+}
+
