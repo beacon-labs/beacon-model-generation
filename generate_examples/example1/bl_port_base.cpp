@@ -16,9 +16,18 @@ string BLPortBase::get_name()
     return this->name;
 }
 
+void BLPortBase::observe_name(shared_ptr<IBLObserver<string>> observer)
+{
+    name_observers.push_back( observer );
+}
+
 void BLPortBase::set_name(string value)
 {
     this->name = value;
+    for ( shared_ptr<IBLObserver<string>> observer : name_observers )
+    {
+        observer->update( value );
+    }
 }
 
 
@@ -27,8 +36,17 @@ string BLPortBase::get_direction()
     return this->direction;
 }
 
+void BLPortBase::observe_direction(shared_ptr<IBLObserver<string>> observer)
+{
+    direction_observers.push_back( observer );
+}
+
 void BLPortBase::set_direction(string value)
 {
     this->direction = value;
+    for ( shared_ptr<IBLObserver<string>> observer : direction_observers )
+    {
+        observer->update( value );
+    }
 }
 

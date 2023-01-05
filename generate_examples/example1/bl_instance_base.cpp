@@ -16,9 +16,18 @@ string BLInstanceBase::get_name()
     return this->name;
 }
 
+void BLInstanceBase::observe_name(shared_ptr<IBLObserver<string>> observer)
+{
+    name_observers.push_back( observer );
+}
+
 void BLInstanceBase::set_name(string value)
 {
     this->name = value;
+    for ( shared_ptr<IBLObserver<string>> observer : name_observers )
+    {
+        observer->update( value );
+    }
 }
 
 
@@ -27,9 +36,18 @@ shared_ptr<BLDesign> BLInstanceBase::get_reference()
     return this->reference;
 }
 
+void BLInstanceBase::observe_reference(shared_ptr<IBLObserver<shared_ptr<BLDesign>>> observer)
+{
+    reference_observers.push_back( observer );
+}
+
 void BLInstanceBase::set_reference(shared_ptr<BLDesign> value)
 {
     this->reference = value;
+    for ( shared_ptr<IBLObserver<shared_ptr<BLDesign>>> observer : reference_observers )
+    {
+        observer->update( value );
+    }
 }
 
 
@@ -38,9 +56,18 @@ list<shared_ptr<BLPin>> BLInstanceBase::get_pins()
     return this->pins;
 }
 
+void BLInstanceBase::observe_pins(shared_ptr<IBLObserver<shared_ptr<BLPin>>> observer)
+{
+    pins_observers.push_back( observer );
+}
+
 
 void BLInstanceBase::add_pin(shared_ptr<BLPin> value)
 {
     this->pins.push_back( value );
+    for ( shared_ptr<IBLObserver<shared_ptr<BLPin>>> observer : pins_observers )
+    {
+        observer->update( value );
+    }
 }
 

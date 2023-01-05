@@ -2,7 +2,13 @@ import config
 import helpers
 from jinja2 import Template
 import os
-from templates import model_base_cpp_j2, model_base_h_j2, model_cpp_j2, model_h_j2
+from templates import (
+    model_base_cpp_j2,
+    model_base_h_j2,
+    model_cpp_j2,
+    model_h_j2,
+    iobserver_h_j2,
+)
 
 
 def run(filename: str, output="."):
@@ -31,7 +37,6 @@ def run(filename: str, output="."):
     for model in helpers.get_models():
         print(f"INFO: writing model {model['name']}")
 
-        # Always write base files
         for type in templates.keys():
             for ext in templates[type]["files"].keys():
                 fn = os.path.join(
@@ -41,6 +46,19 @@ def run(filename: str, output="."):
                         ext,
                     ),
                 )
+                print(f"      {fn}")
                 if templates[type].get("override", False) or not os.path.exists(fn):
                     with open(fn, "w") as f:
                         f.write(templates[type]["files"][ext].render(model, h=helpers))
+
+    print(f"INFO: writing supporting classes and headers")
+    fn = os.path.join(
+        output,
+        helpers.get_model_filename(
+            "Observer",
+            "h",
+        ),
+    )
+    print(f"      {fn}")
+    with open(fn, "w") as f:
+        f.write(Template(iobserver_h_j2.TEMPLATE).render(h=helpers))

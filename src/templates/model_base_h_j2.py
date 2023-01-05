@@ -13,6 +13,8 @@ TEMPLATE = """
 using namespace std;
 
 #include <memory>
+#include "{{h.get_model_filename("Observer", "h")}}"
+#include <list>
 {% for include in h.get_setting("includes") -%}
     #include <{{ include }}>
 {% endfor -%}
@@ -26,10 +28,12 @@ class {{ h.get_prefixed_name(name) }}Base
 {
     {% for attribute in attributes: %}
     {{ h.get_attribute_type(attribute) }} {{ attribute["name"] }};
+    list<shared_ptr<I{{ h.get_prefixed_name("Observer") }}<{{ h.get_attribute_type_without_list(attribute) }}>>> {{ attribute["name"] }}_observers;
     {% endfor %}
 public:
     {% for attribute in attributes: %}
     {{ h.get_attribute_type(attribute) }} get_{{ attribute["name"] }}();
+    void observe_{{ attribute["name"] }}(shared_ptr<I{{ h.get_prefixed_name("Observer") }}<{{ h.get_attribute_type_without_list(attribute) }}>> observer);
     {%- if not attribute.get("list", False): %}
     void set_{{ attribute["name"] }}({{ h.get_attribute_type(attribute) }} value);
     {%- else %}

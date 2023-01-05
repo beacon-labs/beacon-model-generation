@@ -16,9 +16,18 @@ string BLDesignBase::get_name()
     return this->name;
 }
 
+void BLDesignBase::observe_name(shared_ptr<IBLObserver<string>> observer)
+{
+    name_observers.push_back( observer );
+}
+
 void BLDesignBase::set_name(string value)
 {
     this->name = value;
+    for ( shared_ptr<IBLObserver<string>> observer : name_observers )
+    {
+        observer->update( value );
+    }
 }
 
 
@@ -27,9 +36,18 @@ list<shared_ptr<BLInstance>> BLDesignBase::get_instances()
     return this->instances;
 }
 
+void BLDesignBase::observe_instances(shared_ptr<IBLObserver<shared_ptr<BLInstance>>> observer)
+{
+    instances_observers.push_back( observer );
+}
+
 
 void BLDesignBase::add_instance(shared_ptr<BLInstance> value)
 {
     this->instances.push_back( value );
+    for ( shared_ptr<IBLObserver<shared_ptr<BLInstance>>> observer : instances_observers )
+    {
+        observer->update( value );
+    }
 }
 
